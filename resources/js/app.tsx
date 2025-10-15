@@ -9,6 +9,10 @@ import {ImportedModule} from "@/types/global";
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+import.meta.glob([
+    '../images/**',
+]);
+
 createInertiaApp({
     resolve: async (name) => {
         const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });

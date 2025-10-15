@@ -8,7 +8,7 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "paths": {
-            "@/*": ["./resources/js/*"]
+            "@/*": ["./resources/js/*"],
         },
         "jsx": "react",
         "types": [
