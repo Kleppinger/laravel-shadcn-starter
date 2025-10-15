@@ -24,8 +24,6 @@ class VerificationController extends Controller
 
     /**
      * Where to redirect users after verification.
-     *
-     * @var string
      */
     public string $redirectTo;
 
@@ -36,7 +34,7 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->redirectTo = route("verification.verified");
+        $this->redirectTo = route('verification.verified');
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
@@ -45,7 +43,6 @@ class VerificationController extends Controller
     /**
      * Show the email verification notice.
      *
-     * @param \Illuminate\Http\Request $request
      * @return \Inertia\Response|\Illuminate\Http\RedirectResponse
      */
     public function show(Request $request)
@@ -57,8 +54,10 @@ class VerificationController extends Controller
             ]);
     }
 
-    public function verified(Request $request) {
-        $this->middleware("verified");
+    public function verified(Request $request)
+    {
+        $this->middleware('verified');
+
         return Inertia::render('auth/verified');
     }
 }

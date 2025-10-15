@@ -97,8 +97,8 @@ return [
             'retry_after' => 60,
         ],
         'preview' => [
-            "transport" => "preview"
-        ]
+            'transport' => 'preview',
+        ],
 
     ],
 
