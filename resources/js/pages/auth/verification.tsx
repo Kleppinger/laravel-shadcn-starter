@@ -1,4 +1,4 @@
-import { VerificationForm } from "@/components/verification-form"
+import { VerificationForm } from "@/components/forms/verification-form"
 import React from "react";
 import AuthLayout from "@/layout/auth";
 

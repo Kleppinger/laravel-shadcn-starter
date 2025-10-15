@@ -1,4 +1,4 @@
-import { ResetPasswordForm } from "@/components/reset-password-form"
+import { ResetPasswordForm } from "@/components/forms/reset-password-form"
 import React from "react";
 import AuthLayout from "@/layout/auth";
 

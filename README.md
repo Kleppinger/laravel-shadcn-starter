@@ -38,18 +38,13 @@ This starter template provides a solid foundation for building modern web applic
 
 ## TODO
 
-- [ ] Add authentication scaffolding (Login, Register, Password Reset)
+- [x] Add authentication scaffolding (Login, Register, Password Reset)
 - [ ] Implement user dashboard
-- [ ] Add more shadcn/ui components
+- [x] Add more shadcn/ui components
 - [ ] Create example CRUD operations
-- [ ] Add API routes with Laravel Sanctum
-- [ ] Implement authorization with Laravel Policies
-- [ ] Add email verification
+- [x] Add email verification
 - [ ] Create example tests for features
-- [ ] Add Docker support with Laravel Sail
 - [ ] Documentation for component usage
-- [ ] Add CI/CD pipeline examples
-- [ ] Implement background job examples
 - [ ] Add file upload functionality
 - [ ] Create admin panel example
 

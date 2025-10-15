@@ -12,6 +12,7 @@ import { useRoute } from 'ziggy-js'
 import { FormEventHandler } from 'react'
 import { Mail } from 'lucide-react'
 import React from "react";
+import {toast} from "sonner";
 
 interface VerificationFormProps extends Omit<React.ComponentProps<"form">, 'onSubmit'> {
   email?: string
@@ -27,7 +28,21 @@ export function VerificationForm({
 
   const resendVerification: FormEventHandler = (e) => {
     e.preventDefault()
-    post(route('verification.resend'))
+    post(route('verification.resend'), {
+        headers: {
+            "Accept": "application/json"
+        },
+        onSuccess: () => {
+            toast.success("The verification mail was sent again.", {
+                position: "top-right"
+            });
+        },
+        onError: () => {
+            toast.error("You are doing this to fast! Please try again later.", {
+                position: "top-right"
+            });
+        }
+    })
   }
 
   return (
@@ -73,13 +88,6 @@ export function VerificationForm({
           </Button>
         </Field>
 
-        <Field>
-          <FieldDescription className="text-center">
-            <Link href={route("login")} className="underline underline-offset-4">
-              Back to login
-            </Link>
-          </FieldDescription>
-        </Field>
       </FieldGroup>
     </form>
   )

@@ -1,12 +1,8 @@
 import {Mail} from "lucide-react"
-import { router } from '@inertiajs/react';
-import { useRoute} from "ziggy-js";
-import {Button} from "@/components/ui/button";
 import React from "react";
 import AuthLayout from "@/layout/auth";
 
-const VerifiedPage = () => {
-    const route = useRoute();
+const PasswordMailSentPage = () => {
     return (
         <div className="w-full max-w-xs">
             <div className="flex flex-col gap-6">
@@ -15,13 +11,10 @@ const VerifiedPage = () => {
                         <Mail className="size-8" />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-2xl font-bold">Verification complete!</h1>
+                        <h1 className="text-2xl font-bold">Reset mail sent</h1>
                         <p className="text-muted-foreground text-sm text-balance">
-                            You can now close this window and return to the application.
+                            If you have an account with the email you just provided, you will receive an email with instructions to reset your password.
                         </p>
-                        <Button type="submit" onClick={() => router.get(route("home"))}>
-                            Back to the application
-                        </Button>
                     </div>
                 </div>
             </div>
@@ -29,6 +22,6 @@ const VerifiedPage = () => {
     );
 };
 
-VerifiedPage.layout = (page: React.ReactNode) => <AuthLayout>{page}</AuthLayout>
+PasswordMailSentPage.layout = (page: React.ReactNode) => <AuthLayout>{page}</AuthLayout>
 
-export default VerifiedPage
+export default PasswordMailSentPage

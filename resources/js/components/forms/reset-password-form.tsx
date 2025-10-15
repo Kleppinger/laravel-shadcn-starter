@@ -30,7 +30,8 @@ export function ResetPasswordForm({
 
   const submit: FormEventHandler = (e) => {
     e.preventDefault()
-    post(route('password.update'))
+    post(route('password.update'));
+
   }
 
   return (

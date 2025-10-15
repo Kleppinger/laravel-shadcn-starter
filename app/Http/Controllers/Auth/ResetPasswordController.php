@@ -24,6 +24,16 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
+     * Where to redirect users after resetting their password.
+     */
+    public $redirectTo;
+
+    public function __construct()
+    {
+        $this->redirectTo = route("password.reset.success");
+    }
+
+    /**
      * Display the password reset view for the given token.
      */
     public function showResetForm(Request $request): Response
@@ -36,8 +46,8 @@ class ResetPasswordController extends Controller
         ]);
     }
 
-    /**
-     * Where to redirect users after resetting their password.
-     */
-    protected $redirectTo = '/home';
+    public function showResetSuccessPage(): Response {
+        return Inertia::render('auth/password-success');
+    }
+
 }
