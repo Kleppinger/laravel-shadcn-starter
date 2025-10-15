@@ -12,6 +12,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp"
+import React from "react";
 
 export function OTPForm({ className, ...props }: React.ComponentProps<"div">) {
   return (

@@ -10,6 +10,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Link } from '@inertiajs/react'
 import { useRoute } from 'ziggy-js';
+import React from "react";
+
 export function LoginForm({
   className,
   ...props

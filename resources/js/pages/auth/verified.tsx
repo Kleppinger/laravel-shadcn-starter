@@ -2,6 +2,7 @@ import {GalleryVerticalEnd, Mail} from "lucide-react"
 import { router } from '@inertiajs/react';
 import { useRoute} from "ziggy-js";
 import {Button} from "@/components/ui/button";
+import React from "react";
 
 export default function VerifiedPage() {
     const route = useRoute();

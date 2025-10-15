@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Link, useForm } from '@inertiajs/react'
 import { useRoute } from 'ziggy-js'
 import { FormEventHandler } from 'react'
+import React from "react";
 
 export function ForgotPasswordForm({
   className,

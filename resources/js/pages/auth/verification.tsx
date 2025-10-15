@@ -1,5 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 import { VerificationForm } from "@/components/verification-form"
+import React from "react";
 
 interface VerificationPageProps {
   email?: string

@@ -1,5 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 import { ResetPasswordForm } from "@/components/reset-password-form"
+import React from "react";
 
 interface ResetPasswordPageProps {
   token: string

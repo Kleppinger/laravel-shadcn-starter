@@ -1,9 +1,18 @@
 {
     "compilerOptions": {
+        "module": "esnext",
+        "target": "esnext",
+        "moduleResolution": "node",
         "baseUrl": ".",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
         "paths": {
             "@/*": ["./resources/js/*"]
         },
-        "jsx": "react"
-    }
+        "jsx": "react",
+        "types": [
+            "vite/client"
+        ]
+    },
 }

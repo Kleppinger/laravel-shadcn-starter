@@ -1,7 +1,7 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
 import { SignupForm } from "@/components/signup-form"
-import {useRoute} from "ziggy-js";
+import React from "react";
 
 export default function SignupPage() {
   return (

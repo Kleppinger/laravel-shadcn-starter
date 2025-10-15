@@ -1,6 +1,7 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
 import { ForgotPasswordForm } from "@/components/forgot-password-form"
+import React from "react";
 
 export default function ForgotPasswordPage() {
     return (
