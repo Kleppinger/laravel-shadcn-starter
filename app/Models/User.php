@@ -45,4 +45,24 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Determine if the user has verified their email address.
+     */
+    public function hasVerifiedEmail(): bool
+    {
+        if (!config('template.enable_verification')) {
+            return true;
+        }
+
+        return !is_null($this->email_verified_at);
+    }
+
+    /**
+     * Determine if the user should verify their email address.
+     */
+    public function shouldVerifyEmail(): bool
+    {
+        return config('template.enable_verification', true);
+    }
 }
