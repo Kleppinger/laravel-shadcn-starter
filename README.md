@@ -14,26 +14,25 @@
 
 A modern full-stack starter template combining the power of Laravel with the beautiful UI components of shadcn/ui and the seamless page transitions of Inertia.js.
 
-## About This Project
 
-This starter template provides a solid foundation for building modern web applications with:
+<p align="center">
+  <img src="screenshots/login.png" width="49%" alt="Login Page">
+  <img src="screenshots/register.png" width="49%" alt="Register Page">
+</p>
 
-- **[Laravel 12](https://laravel.com)** - The PHP framework for web artisans
-- **[Inertia.js v2](https://inertiajs.com)** - Build single-page apps without building an API
-- **[React 19](https://react.dev)** - A JavaScript library for building user interfaces
-- **[shadcn/ui](https://ui.shadcn.com)** - Beautifully designed components built with Radix UI and Tailwind CSS
-- **[Tailwind CSS v4](https://tailwindcss.com)** - A utility-first CSS framework
-- **[TypeScript](https://www.typescriptlang.org)** - JavaScript with syntax for types
+<p align="center">
+  <img src="screenshots/forgot-password.png" width="49%" alt="Forgot Password Page">
+  <img src="screenshots/dashboard.png" width="49%" alt="Dashboard Page">
+</p>
 
 ## Features
 
-- 🎨 Pre-configured shadcn/ui components
-- 🔄 Inertia.js for seamless SPA experience
-- 🎯 TypeScript support out of the box
-- 🌙 Dark mode ready
-- 📱 Responsive design
-- 🎭 Laravel Pint for code formatting
-- 🚀 Vite for fast builds and HMR
+- Pre-configured shadcn/ui components
+- Inertia.js for seamless SPA experience
+- TypeScript support out of the box
+- Dark mode ready
+- Responsive design
+- Fully implemented authentication flow (with email verification!)
 
 
 ## Getting Started
