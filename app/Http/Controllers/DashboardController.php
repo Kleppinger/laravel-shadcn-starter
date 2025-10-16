@@ -6,7 +6,6 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *

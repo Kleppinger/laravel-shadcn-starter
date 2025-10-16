@@ -51,11 +51,11 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
      */
     public function hasVerifiedEmail(): bool
     {
-        if (!config('template.enable_verification')) {
+        if (! config('template.enable_verification')) {
             return true;
         }
 
-        return !is_null($this->email_verified_at);
+        return ! is_null($this->email_verified_at);
     }
 
     /**

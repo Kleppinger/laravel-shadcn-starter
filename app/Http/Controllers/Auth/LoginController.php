@@ -23,8 +23,6 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
-     * @var string
      */
     public string $redirectTo;
 
@@ -35,7 +33,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->redirectTo = route("dashboard.index");
+        $this->redirectTo = route('dashboard.index');
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }

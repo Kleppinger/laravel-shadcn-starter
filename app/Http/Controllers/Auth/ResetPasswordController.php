@@ -30,7 +30,7 @@ class ResetPasswordController extends Controller
 
     public function __construct()
     {
-        $this->redirectTo = route("password.reset.success");
+        $this->redirectTo = route('password.reset.success');
     }
 
     /**
@@ -46,8 +46,8 @@ class ResetPasswordController extends Controller
         ]);
     }
 
-    public function showResetSuccessPage(): Response {
+    public function showResetSuccessPage(): Response
+    {
         return Inertia::render('auth/password-success');
     }
-
 }
