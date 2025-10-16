@@ -20,7 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->respond(function (\Illuminate\Http\Response $response, Throwable $exception, Request $request) {
+        $exceptions->respond(function ($response, Throwable $exception, Request $request) {
             if ($response->getStatusCode() === 429) {
                 return back()->with('error', 'You are being ratelimited. Please try again later.');
             }
