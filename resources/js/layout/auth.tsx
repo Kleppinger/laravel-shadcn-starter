@@ -4,7 +4,7 @@ import backgroundUrl from "@/images/background.svg";
 import {Toaster} from "@/components/ui/sonner";
 import {usePage} from "@inertiajs/react";
 
-interface SharedProps extends Record<string, any> {
+interface SharedProps extends Record<string, unknown> {
     appName: string;
 }
 

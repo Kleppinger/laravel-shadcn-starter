@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -43,6 +44,21 @@ class HandleInertiaRequests extends Middleware
                 ];
             },
             'appName' => config('app.name'),
+            'user' => function () use ($request) {
+                $user = $request->user();
+                if (! \Auth::check()) {
+                    return null;
+                }
+                $data = $user->only(['id', 'name', 'email']);
+
+                return [
+                    ...$data,
+                    'initials' => Str::of($user->name)
+                        ->explode(' ') // Split the name into parts
+                        ->map(fn ($part) => Str::of($part)->substr(0, 1)->upper()) // Take the first letter and uppercase it
+                        ->join(''),
+                ];
+            },
         ];
     }
 }

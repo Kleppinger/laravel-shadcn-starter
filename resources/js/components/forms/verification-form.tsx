@@ -7,7 +7,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { Link, useForm } from '@inertiajs/react'
+import { useForm } from '@inertiajs/react'
 import { useRoute } from 'ziggy-js'
 import { FormEventHandler } from 'react'
 import { Mail } from 'lucide-react'
