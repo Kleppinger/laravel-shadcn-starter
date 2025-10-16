@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    public string $redirectTo;
 
     /**
      * Create a new controller instance.
@@ -35,6 +35,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = route("dashboard.index");
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
