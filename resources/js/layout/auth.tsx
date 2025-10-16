@@ -2,8 +2,15 @@ import React from "react";
 import {GalleryVerticalEnd} from "lucide-react";
 import backgroundUrl from "@/images/background.svg";
 import {Toaster} from "@/components/ui/sonner";
+import {usePage} from "@inertiajs/react";
+
+interface SharedProps extends Record<string, any> {
+    appName: string;
+}
 
 export default function AuthLayout({ children}: { children: React.ReactNode } ) {
+    const { props: _props } = usePage<SharedProps>();
+
     return <>
         <div className="grid min-h-svh lg:grid-cols-2">
             <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -12,7 +19,7 @@ export default function AuthLayout({ children}: { children: React.ReactNode } ) 
                         <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
                             <GalleryVerticalEnd className="size-4" />
                         </div>
-                        Acme Inc.
+                        {_props.appName}
                     </a>
                 </div>
                 <div className="flex flex-1 items-center justify-center">

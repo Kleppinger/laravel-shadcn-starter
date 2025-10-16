@@ -37,7 +37,12 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            //
+            'toast' => function () use ($request) {
+                return [
+                    'error' => $request->session()->get('error'),
+                ];
+            },
+            "appName" => config("app.name")
         ];
     }
 }

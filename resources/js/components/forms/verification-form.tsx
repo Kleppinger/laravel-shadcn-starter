@@ -29,18 +29,18 @@ export function VerificationForm({
   const resendVerification: FormEventHandler = (e) => {
     e.preventDefault()
     post(route('verification.resend'), {
-        headers: {
-            "Accept": "application/json"
-        },
-        onSuccess: () => {
-            toast.success("The verification mail was sent again.", {
-                position: "top-right"
-            });
-        },
-        onError: () => {
-            toast.error("You are doing this to fast! Please try again later.", {
-                position: "top-right"
-            });
+        onSuccess: (data) => {
+            // @ts-expect-error data.props.toast.error is dynamically returned by the server.
+            const error = data.props.toast.error ?? null;
+            if(error == null) {
+                toast.success("The verification mail was sent again.", {
+                    position: "top-right"
+                });
+            } else {
+                toast.error("You are doing this to fast! Please try again later.", {
+                    position: "top-right"
+                });
+            }
         }
     })
   }
