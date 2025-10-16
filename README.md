@@ -32,21 +32,9 @@ This starter template provides a solid foundation for building modern web applic
 - 🎯 TypeScript support out of the box
 - 🌙 Dark mode ready
 - 📱 Responsive design
-- 🧪 PHPUnit testing setup
 - 🎭 Laravel Pint for code formatting
 - 🚀 Vite for fast builds and HMR
 
-## TODO
-
-- [x] Add authentication scaffolding (Login, Register, Password Reset)
-- [ ] Implement user dashboard
-- [x] Add more shadcn/ui components
-- [ ] Create example CRUD operations
-- [x] Add email verification
-- [ ] Create example tests for features
-- [ ] Documentation for component usage
-- [ ] Add file upload functionality
-- [ ] Create admin panel example
 
 ## Getting Started
 
@@ -61,7 +49,7 @@ This starter template provides a solid foundation for building modern web applic
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/laravel-shadcn-starter.git
+git clone https://github.com/Kleppinger/laravel-shadcn-starter.git
 cd laravel-shadcn-starter
 ```
 
@@ -73,8 +61,8 @@ composer install
 3. Install JavaScript dependencies:
 ```bash
 npm install
-# or
-bun install
+# or using bun (recommended)
+bun install 
 ```
 
 4. Copy the environment file and generate application key:
@@ -83,24 +71,30 @@ copy .env.example .env
 php artisan key:generate
 ```
 
+> **Notice:** In the example, `MAIL_MAILER` is set to *preview*. If you dont want this, please configure a different viewer.
+
 5. Run database migrations:
 ```bash
 php artisan migrate
 ```
 
-6. Build assets and start the development server:
+6. Start the Vite and Laravel development server:
 ```bash
-npm run dev
-# or
-bun run dev
-```
-
-7. In a separate terminal, start the Laravel development server:
-```bash
-php artisan serve
+composer run dev
 ```
 
 Visit `http://localhost:8000` in your browser.
+
+## Configuration
+To easily disable/enable mail verification, just change the setting in `config/template.php`:
+
+```php
+<?php
+
+return [
+    'enable_verification' => true,
+];
+```
 
 ## Development
 
@@ -122,33 +116,10 @@ Format your PHP code with Laravel Pint:
 vendor/bin/pint
 ```
 
-### Running Tests
-
-Run the test suite:
-
 ```bash
 php artisan test
 ```
 
-## Tech Stack
-
-### Backend
-- Laravel 12
-- PHP 8.3
-- SQLite Database
-
-### Frontend
-- React 19
-- TypeScript
-- Inertia.js v2
-- shadcn/ui
-- Tailwind CSS v4
-- Vite
-
-### Development Tools
-- Laravel Pint (PHP code formatter)
-- PHPUnit (testing)
-- Laravel Sail (Docker environment)
 
 ## Contributing
 

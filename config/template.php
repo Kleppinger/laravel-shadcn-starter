@@ -1,6 +1,5 @@
 <?php
 
 return [
-    'enable_verification' => false,
-
+    'enable_verification' => true,
 ];
