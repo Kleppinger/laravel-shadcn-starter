@@ -16,6 +16,7 @@ import {
     SidebarMenuSubItem,
 } from '@/components/ui/sidebar';
 import React from 'react';
+import {useLang} from "@/hooks/useLang";
 
 export function NavMain({
     items,
@@ -31,9 +32,10 @@ export function NavMain({
         }[];
     }[];
 }) {
+    const { __ } = useLang();
     return (
         <SidebarGroup>
-            <SidebarGroupLabel>Application</SidebarGroupLabel>
+            <SidebarGroupLabel>{__("sidebar.mainNav.label")}</SidebarGroupLabel>
             <SidebarMenu>
                 {items.map((item) => (
                     <Collapsible

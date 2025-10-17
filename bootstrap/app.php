@@ -18,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
             AddMailPreviewOverlayToResponse::class,
             HandleInertiaRequests::class,
         ]);
+        $middleware->alias([
+            "translations" => \App\Http\Middleware\AddApplicationTranslations::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->respond(function ($response, Throwable $exception, Request $request) {

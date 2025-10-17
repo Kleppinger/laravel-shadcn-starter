@@ -15,6 +15,6 @@ Route::get('/email/verified', [\App\Http\Controllers\Auth\VerificationController
 Route::get('/password/resetSent', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showPasswordMailSentPage'])->name('password.request.sent');
 Route::get('/password/resetSuccess', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetSuccessPage'])->name('password.reset.success');
 
-Route::middleware(config('template.enable_verification') ? ['auth', 'verified'] : ['auth'])->group(function () {
+Route::middleware(config('template.enable_verification') ? ['auth', 'verified', 'translations'] : ['auth', 'translations'])->group(function () {
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 });
