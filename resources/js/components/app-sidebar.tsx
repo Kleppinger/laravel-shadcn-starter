@@ -24,7 +24,7 @@ import {
 import React from 'react';
 import { usePage } from '@inertiajs/react';
 import { useRoute } from 'ziggy-js';
-import {useLang} from "@/hooks/useLang";
+import { useLang } from '@/hooks/useLang';
 
 interface SharedProps extends Record<string, unknown> {
     appName: string;
@@ -38,7 +38,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const data = {
         navMain: [
             {
-                title: __("sidebar.mainNav.items.dashboard"),
+                title: __('sidebar.mainNav.items.dashboard'),
                 url: route('dashboard.index'),
                 icon: SquareTerminal,
                 isActive: true,

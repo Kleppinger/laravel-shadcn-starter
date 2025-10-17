@@ -58,7 +58,9 @@ export function ResetPasswordForm({
                     <Input
                         id="email"
                         type="email"
-                        placeholder={__('auth.reset_password.email_placeholder')}
+                        placeholder={__(
+                            'auth.reset_password.email_placeholder',
+                        )}
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
@@ -103,7 +105,9 @@ export function ResetPasswordForm({
                         required
                     />
                     <FieldDescription>
-                        {__('auth.reset_password.password_confirmation_description')}
+                        {__(
+                            'auth.reset_password.password_confirmation_description',
+                        )}
                     </FieldDescription>
                 </Field>
                 <Field>

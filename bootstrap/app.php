@@ -19,7 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
             HandleInertiaRequests::class,
         ]);
         $middleware->alias([
-            "translations" => \App\Http\Middleware\AddApplicationTranslations::class
+            'translations' => \App\Http\Middleware\AddApplicationTranslations::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

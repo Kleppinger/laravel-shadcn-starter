@@ -21,7 +21,7 @@ import { usePage } from '@inertiajs/react';
 import { useRoute } from 'ziggy-js';
 import { router } from '@inertiajs/react';
 import { toast } from 'sonner';
-import {useLang} from "@/hooks/useLang";
+import { useLang } from '@/hooks/useLang';
 
 interface UserProps extends Record<string, unknown> {
     user?: {
@@ -99,13 +99,13 @@ export function NavUser() {
                         <DropdownMenuGroup>
                             <DropdownMenuItem>
                                 <Cog />
-                                {__("sidebar.user.settings")}
+                                {__('sidebar.user.settings')}
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem onClick={logout}>
                             <LogOut />
-                            {__("sidebar.user.logout")}
+                            {__('sidebar.user.logout')}
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

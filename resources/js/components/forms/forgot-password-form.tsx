@@ -50,7 +50,9 @@ export function ForgotPasswordForm({
                     <Input
                         id="email"
                         type="email"
-                        placeholder={__('auth.forgot_password.email_placeholder')}
+                        placeholder={__(
+                            'auth.forgot_password.email_placeholder',
+                        )}
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
@@ -67,7 +69,9 @@ export function ForgotPasswordForm({
                 <Field>
                     <Button type="submit" disabled={processing}>
                         {processing
-                            ? __('auth.forgot_password.submit_button_processing')
+                            ? __(
+                                  'auth.forgot_password.submit_button_processing',
+                              )
                             : __('auth.forgot_password.submit_button')}
                     </Button>
                 </Field>
