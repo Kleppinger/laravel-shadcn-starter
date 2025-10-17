@@ -4,8 +4,10 @@ import { useRoute } from 'ziggy-js';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 import AuthLayout from '@/layout/auth';
+import { useLang } from '@/hooks/useLang';
 
-const PasswordSucessPage = () => {
+const PasswordSuccessPage = () => {
+    const { __ } = useLang();
     const route = useRoute();
     return (
         <div className="w-full max-w-xs">
@@ -16,17 +18,16 @@ const PasswordSucessPage = () => {
                     </div>
                     <div className="flex flex-col gap-2">
                         <h1 className="text-2xl font-bold">
-                            Password reset complete!
+                            {__('auth.password_success.title')}
                         </h1>
                         <p className="text-muted-foreground text-sm text-balance">
-                            You're password was reset. Next time you login, you
-                            can use your new credentials.
+                            {__('auth.password_success.subtitle')}
                         </p>
                         <Button
                             type="submit"
                             onClick={() => router.get(route('home'))}
                         >
-                            Back to the application
+                            {__('auth.password_success.back_button')}
                         </Button>
                     </div>
                 </div>
@@ -35,8 +36,8 @@ const PasswordSucessPage = () => {
     );
 };
 
-PasswordSucessPage.layout = (page: React.ReactNode) => (
+PasswordSuccessPage.layout = (page: React.ReactNode) => (
     <AuthLayout>{page}</AuthLayout>
 );
 
-export default PasswordSucessPage;
+export default PasswordSuccessPage;

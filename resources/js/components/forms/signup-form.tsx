@@ -6,12 +6,12 @@ import {
     FieldError,
     FieldGroup,
     FieldLabel,
-    FieldSeparator,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Link, useForm } from '@inertiajs/react';
 import { useRoute } from 'ziggy-js';
 import React from 'react';
+import { useLang } from '@/hooks/useLang';
 
 interface SignupFormData {
     name: string;
@@ -24,6 +24,7 @@ export function SignupForm({
     className,
     ...props
 }: React.ComponentProps<'form'>) {
+    const { __ } = useLang();
     const route = useRoute();
     const { data, setData, post, processing, errors } = useForm<SignupFormData>(
         {
@@ -53,21 +54,25 @@ export function SignupForm({
         >
             <FieldGroup>
                 <div className="flex flex-col items-center gap-1 text-center">
-                    <h1 className="text-2xl font-bold">Create your account</h1>
+                    <h1 className="text-2xl font-bold">
+                        {__('auth.signup.title')}
+                    </h1>
                     <p className="text-muted-foreground text-sm text-balance">
-                        Fill in the form below to create your account
+                        {__('auth.signup.subtitle')}
                     </p>
                 </div>
 
                 <Field>
-                    <FieldLabel htmlFor="name">Full Name</FieldLabel>
+                    <FieldLabel htmlFor="name">
+                        {__('auth.signup.name_label')}
+                    </FieldLabel>
                     <Input
                         id="name"
                         name="name"
                         type="text"
                         value={data.name}
                         onChange={handleChange('name')}
-                        placeholder="John Doe"
+                        placeholder={__('auth.signup.name_placeholder')}
                         required
                         disabled={processing}
                     />
@@ -75,26 +80,29 @@ export function SignupForm({
                 </Field>
 
                 <Field>
-                    <FieldLabel htmlFor="email">Email</FieldLabel>
+                    <FieldLabel htmlFor="email">
+                        {__('auth.signup.email_label')}
+                    </FieldLabel>
                     <Input
                         id="email"
                         name="email"
                         type="email"
                         value={data.email}
                         onChange={handleChange('email')}
-                        placeholder="m@example.com"
+                        placeholder={__('auth.signup.email_placeholder')}
                         required
                         disabled={processing}
                     />
                     <FieldDescription>
-                        We&apos;ll use this to contact you. We will not share
-                        your email with anyone else.
+                        {__('auth.signup.email_description')}
                     </FieldDescription>
                     {errors.email && <FieldError>{errors.email}</FieldError>}
                 </Field>
 
                 <Field>
-                    <FieldLabel htmlFor="password">Password</FieldLabel>
+                    <FieldLabel htmlFor="password">
+                        {__('auth.signup.password_label')}
+                    </FieldLabel>
                     <Input
                         id="password"
                         name="password"
@@ -105,7 +113,7 @@ export function SignupForm({
                         disabled={processing}
                     />
                     <FieldDescription>
-                        Must be at least 8 characters long.
+                        {__('auth.signup.password_description')}
                     </FieldDescription>
                     {errors.password && (
                         <FieldError>{errors.password}</FieldError>
@@ -114,7 +122,7 @@ export function SignupForm({
 
                 <Field>
                     <FieldLabel htmlFor="password_confirmation">
-                        Confirm Password
+                        {__('auth.signup.password_confirmation_label')}
                     </FieldLabel>
                     <Input
                         id="password_confirmation"
@@ -126,20 +134,24 @@ export function SignupForm({
                         disabled={processing}
                     />
                     <FieldDescription>
-                        Please confirm your password.
+                        {__('auth.signup.password_confirmation_description')}
                     </FieldDescription>
                 </Field>
 
                 <Field>
                     <Button type="submit" disabled={processing}>
-                        {processing ? 'Creating Account...' : 'Create Account'}
+                        {processing
+                            ? __('auth.signup.submit_button_processing')
+                            : __('auth.signup.submit_button')}
                     </Button>
                 </Field>
 
                 <Field>
                     <FieldDescription className="px-6 text-center">
-                        Already have an account?{' '}
-                        <Link href={route('login')}>Sign in</Link>
+                        {__('auth.signup.have_account')}{' '}
+                        <Link href={route('login')}>
+                            {__('auth.signup.sign_in_link')}
+                        </Link>
                     </FieldDescription>
                 </Field>
             </FieldGroup>

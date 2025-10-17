@@ -4,8 +4,10 @@ import { useRoute } from 'ziggy-js';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 import AuthLayout from '@/layout/auth';
+import { useLang } from '@/hooks/useLang';
 
 const VerifiedPage = () => {
+    const { __ } = useLang();
     const route = useRoute();
     return (
         <div className="w-full max-w-xs">
@@ -16,17 +18,16 @@ const VerifiedPage = () => {
                     </div>
                     <div className="flex flex-col gap-2">
                         <h1 className="text-2xl font-bold">
-                            Verification complete!
+                            {__('auth.verified.title')}
                         </h1>
                         <p className="text-muted-foreground text-sm text-balance">
-                            You can now close this window and return to the
-                            application.
+                            {__('auth.verified.subtitle')}
                         </p>
                         <Button
                             type="submit"
                             onClick={() => router.get(route('home'))}
                         >
-                            Back to the application
+                            {__('auth.verified.back_button')}
                         </Button>
                     </div>
                 </div>

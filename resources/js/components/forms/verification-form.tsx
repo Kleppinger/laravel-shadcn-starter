@@ -13,6 +13,7 @@ import { FormEventHandler } from 'react';
 import { Mail } from 'lucide-react';
 import React from 'react';
 import { toast } from 'sonner';
+import { useLang } from '@/hooks/useLang';
 
 interface VerificationFormProps
     extends Omit<React.ComponentProps<'form'>, 'onSubmit'> {
@@ -24,6 +25,7 @@ export function VerificationForm({
     className,
     ...props
 }: VerificationFormProps) {
+    const { __ } = useLang();
     const route = useRoute();
     const { post, processing } = useForm();
 
@@ -34,16 +36,13 @@ export function VerificationForm({
                 // @ts-expect-error data.props.toast.error is dynamically returned by the server.
                 const error = data.props.toast.error ?? null;
                 if (error == null) {
-                    toast.success('The verification mail was sent again.', {
+                    toast.success(__('auth.verification.resend_success'), {
                         position: 'top-right',
                     });
                 } else {
-                    toast.error(
-                        'You are doing this to fast! Please try again later.',
-                        {
-                            position: 'top-right',
-                        },
-                    );
+                    toast.error(__('auth.verification.resend_error'), {
+                        position: 'top-right',
+                    });
                 }
             },
         });
@@ -62,18 +61,19 @@ export function VerificationForm({
                     </div>
                     <div className="flex flex-col gap-1">
                         <h1 className="text-2xl font-bold">
-                            Verify your email
+                            {__('auth.verification.title')}
                         </h1>
                         <p className="text-muted-foreground text-sm text-balance">
-                            We&apos;ve sent a verification link to your email
-                            address
+                            {__('auth.verification.subtitle')}
                         </p>
                     </div>
                 </div>
 
                 {email && (
                     <Field>
-                        <FieldLabel htmlFor="email">Email Address</FieldLabel>
+                        <FieldLabel htmlFor="email">
+                            {__('auth.verification.email_label')}
+                        </FieldLabel>
                         <Input
                             id="email"
                             type="email"
@@ -82,16 +82,14 @@ export function VerificationForm({
                             className="bg-muted"
                         />
                         <FieldDescription>
-                            Please check your inbox and click the verification
-                            link we sent to this address.
+                            {__('auth.verification.email_description')}
                         </FieldDescription>
                     </Field>
                 )}
 
                 <Field>
                     <FieldDescription className="text-center">
-                        Didn&apos;t receive the email? Check your spam folder or
-                        request a new verification link.
+                        {__('auth.verification.no_email')}
                     </FieldDescription>
                 </Field>
 
@@ -101,7 +99,9 @@ export function VerificationForm({
                         disabled={processing}
                         variant="outline"
                     >
-                        {processing ? 'Sending...' : 'Resend Verification Link'}
+                        {processing
+                            ? __('auth.verification.resend_button_processing')
+                            : __('auth.verification.resend_button')}
                     </Button>
                 </Field>
             </FieldGroup>

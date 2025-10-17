@@ -6,12 +6,12 @@ import {
     FieldError,
     FieldGroup,
     FieldLabel,
-    FieldSeparator,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Link, useForm } from '@inertiajs/react';
 import { useRoute } from 'ziggy-js';
 import React from 'react';
+import { useLang } from '@/hooks/useLang';
 
 interface LoginFormData {
     email: string;
@@ -23,6 +23,7 @@ export function LoginForm({
     className,
     ...props
 }: React.ComponentProps<'form'>) {
+    const { __ } = useLang();
     const route = useRoute();
     const { data, setData, post, processing, errors } = useForm<LoginFormData>({
         email: '',
@@ -50,21 +51,23 @@ export function LoginForm({
             <FieldGroup>
                 <div className="flex flex-col items-center gap-1 text-center">
                     <h1 className="text-2xl font-bold">
-                        Login to your account
+                        {__('auth.login.title')}
                     </h1>
                     <p className="text-muted-foreground text-sm text-balance">
-                        Enter your email below to login to your account
+                        {__('auth.login.subtitle')}
                     </p>
                 </div>
                 <Field>
-                    <FieldLabel htmlFor="email">Email</FieldLabel>
+                    <FieldLabel htmlFor="email">
+                        {__('auth.login.email_label')}
+                    </FieldLabel>
                     <Input
                         id="email"
                         name="email"
                         type="email"
                         value={data.email}
                         onChange={handleChange('email')}
-                        placeholder="m@example.com"
+                        placeholder={__('auth.login.email_placeholder')}
                         required
                         disabled={processing}
                     />
@@ -72,12 +75,14 @@ export function LoginForm({
                 </Field>
                 <Field>
                     <div className="flex items-center">
-                        <FieldLabel htmlFor="password">Password</FieldLabel>
+                        <FieldLabel htmlFor="password">
+                            {__('auth.login.password_label')}
+                        </FieldLabel>
                         <Link
                             href={route('password.request')}
                             className="ml-auto text-sm underline-offset-4 hover:underline"
                         >
-                            Forgot your password?
+                            {__('auth.login.forgot_password_link')}
                         </Link>
                     </div>
                     <Input
@@ -95,17 +100,19 @@ export function LoginForm({
                 </Field>
                 <Field>
                     <Button type="submit" disabled={processing}>
-                        {processing ? 'Logging in...' : 'Login'}
+                        {processing
+                            ? __('auth.login.submit_button_processing')
+                            : __('auth.login.submit_button')}
                     </Button>
                 </Field>
                 <Field>
                     <FieldDescription className="text-center">
-                        Don&apos;t have an account?{' '}
+                        {__('auth.login.no_account')}{' '}
                         <Link
                             href={route('register')}
                             className="underline underline-offset-4"
                         >
-                            Sign up
+                            {__('auth.login.sign_up_link')}
                         </Link>
                     </FieldDescription>
                 </Field>

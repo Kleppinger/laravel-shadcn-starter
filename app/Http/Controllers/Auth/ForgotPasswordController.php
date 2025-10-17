@@ -29,11 +29,15 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm(): Response
     {
+        syncLangFiles('auth');
+
         return Inertia::render('auth/forgot-password');
     }
 
     public function showPasswordMailSentPage(): Response
     {
+        syncLangFiles('auth');
+
         return Inertia::render('auth/password-mail-sent');
     }
 

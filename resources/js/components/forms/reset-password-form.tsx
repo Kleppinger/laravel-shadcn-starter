@@ -11,6 +11,8 @@ import { useForm } from '@inertiajs/react';
 import { useRoute } from 'ziggy-js';
 import { FormEventHandler } from 'react';
 import React from 'react';
+import { useLang } from '@/hooks/useLang';
+
 export function ResetPasswordForm({
     className,
     token,
@@ -20,6 +22,7 @@ export function ResetPasswordForm({
     token: string;
     email?: string;
 }) {
+    const { __ } = useLang();
     const route = useRoute();
     const { data, setData, post, processing, errors } = useForm({
         token: token,
@@ -41,17 +44,21 @@ export function ResetPasswordForm({
         >
             <FieldGroup>
                 <div className="flex flex-col items-center gap-1 text-center">
-                    <h1 className="text-2xl font-bold">Reset your password</h1>
+                    <h1 className="text-2xl font-bold">
+                        {__('auth.reset_password.title')}
+                    </h1>
                     <p className="text-muted-foreground text-sm text-balance">
-                        Enter your new password below
+                        {__('auth.reset_password.subtitle')}
                     </p>
                 </div>
                 <Field>
-                    <FieldLabel htmlFor="email">Email</FieldLabel>
+                    <FieldLabel htmlFor="email">
+                        {__('auth.reset_password.email_label')}
+                    </FieldLabel>
                     <Input
                         id="email"
                         type="email"
-                        placeholder="m@example.com"
+                        placeholder={__('auth.reset_password.email_placeholder')}
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
@@ -63,7 +70,9 @@ export function ResetPasswordForm({
                     )}
                 </Field>
                 <Field>
-                    <FieldLabel htmlFor="password">New Password</FieldLabel>
+                    <FieldLabel htmlFor="password">
+                        {__('auth.reset_password.password_label')}
+                    </FieldLabel>
                     <Input
                         id="password"
                         type="password"
@@ -77,12 +86,12 @@ export function ResetPasswordForm({
                         </FieldDescription>
                     )}
                     <FieldDescription>
-                        Must be at least 8 characters long.
+                        {__('auth.reset_password.password_description')}
                     </FieldDescription>
                 </Field>
                 <Field>
                     <FieldLabel htmlFor="password_confirmation">
-                        Confirm Password
+                        {__('auth.reset_password.password_confirmation_label')}
                     </FieldLabel>
                     <Input
                         id="password_confirmation"
@@ -94,12 +103,14 @@ export function ResetPasswordForm({
                         required
                     />
                     <FieldDescription>
-                        Please confirm your new password.
+                        {__('auth.reset_password.password_confirmation_description')}
                     </FieldDescription>
                 </Field>
                 <Field>
                     <Button type="submit" disabled={processing}>
-                        {processing ? 'Resetting...' : 'Reset Password'}
+                        {processing
+                            ? __('auth.reset_password.submit_button_processing')
+                            : __('auth.reset_password.submit_button')}
                     </Button>
                 </Field>
             </FieldGroup>

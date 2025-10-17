@@ -30,6 +30,7 @@ class ResetPasswordController extends Controller
 
     public function __construct()
     {
+        syncLangFiles('auth');
         $this->redirectTo = route('password.reset.success');
     }
 

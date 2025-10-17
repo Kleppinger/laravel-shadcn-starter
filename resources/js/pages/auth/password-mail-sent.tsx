@@ -1,8 +1,10 @@
 import { Mail } from 'lucide-react';
 import React from 'react';
 import AuthLayout from '@/layout/auth';
+import { useLang } from '@/hooks/useLang';
 
 const PasswordMailSentPage = () => {
+    const { __ } = useLang();
     return (
         <div className="w-full max-w-xs">
             <div className="flex flex-col gap-6">
@@ -11,11 +13,11 @@ const PasswordMailSentPage = () => {
                         <Mail className="size-8" />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-2xl font-bold">Reset mail sent</h1>
+                        <h1 className="text-2xl font-bold">
+                            {__('auth.password_mail_sent.title')}
+                        </h1>
                         <p className="text-muted-foreground text-sm text-balance">
-                            If you have an account with the email you just
-                            provided, you will receive an email with
-                            instructions to reset your password.
+                            {__('auth.password_mail_sent.subtitle')}
                         </p>
                     </div>
                 </div>

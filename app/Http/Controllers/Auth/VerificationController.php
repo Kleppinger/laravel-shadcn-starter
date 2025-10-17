@@ -34,6 +34,7 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
+        syncLangFiles('auth');
         $this->redirectTo = route('verification.verified');
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');

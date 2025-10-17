@@ -36,6 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        syncLangFiles('auth');
         $this->middleware('guest');
         $this->redirectTo = route('dashboard.index');
     }
