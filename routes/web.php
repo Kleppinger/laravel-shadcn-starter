@@ -11,7 +11,6 @@ if (config('app.env') === 'local') {
 Auth::routes([
     'verify' => config('template.enable_verification') ?? true,
 ]);
-Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 Route::get('/email/verified', [\App\Http\Controllers\Auth\VerificationController::class, 'verified'])->name('verification.verified');
 Route::get('/password/resetSent', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showPasswordMailSentPage'])->name('password.request.sent');
 Route::get('/password/resetSuccess', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetSuccessPage'])->name('password.reset.success');
