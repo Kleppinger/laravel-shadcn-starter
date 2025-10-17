@@ -1,8 +1,8 @@
-import {AxiosStatic} from "axios";
-import React from "react";
+import { AxiosStatic } from 'axios';
+import React from 'react';
 
 interface DefaultPageModule {
-    layout?: React.JSX.Element | ((any) =>  React.JSX.Element)
+    layout?: React.JSX.Element | ((any) => React.JSX.Element);
 }
 
 interface ImportedModule {

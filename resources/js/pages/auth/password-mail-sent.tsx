@@ -1,6 +1,6 @@
-import {Mail} from "lucide-react"
-import React from "react";
-import AuthLayout from "@/layout/auth";
+import { Mail } from 'lucide-react';
+import React from 'react';
+import AuthLayout from '@/layout/auth';
 
 const PasswordMailSentPage = () => {
     return (
@@ -13,7 +13,9 @@ const PasswordMailSentPage = () => {
                     <div className="flex flex-col gap-2">
                         <h1 className="text-2xl font-bold">Reset mail sent</h1>
                         <p className="text-muted-foreground text-sm text-balance">
-                            If you have an account with the email you just provided, you will receive an email with instructions to reset your password.
+                            If you have an account with the email you just
+                            provided, you will receive an email with
+                            instructions to reset your password.
                         </p>
                     </div>
                 </div>
@@ -22,6 +24,8 @@ const PasswordMailSentPage = () => {
     );
 };
 
-PasswordMailSentPage.layout = (page: React.ReactNode) => <AuthLayout>{page}</AuthLayout>
+PasswordMailSentPage.layout = (page: React.ReactNode) => (
+    <AuthLayout>{page}</AuthLayout>
+);
 
-export default PasswordMailSentPage
+export default PasswordMailSentPage;

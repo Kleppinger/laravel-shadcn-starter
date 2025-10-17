@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import {
     BookOpen,
@@ -9,39 +9,40 @@ import {
     PieChart,
     Settings2,
     SquareTerminal,
-} from "lucide-react"
+} from 'lucide-react';
 
-import {NavMain} from "@/components/nav-main"
-import {NavUser} from "@/components/nav-user"
+import { NavMain } from '@/components/nav-main';
+import { NavUser } from '@/components/nav-user';
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
-    SidebarHeader, SidebarMenuButton,
+    SidebarHeader,
+    SidebarMenuButton,
     SidebarRail,
-} from "@/components/ui/sidebar"
-import React from "react";
-import {usePage} from "@inertiajs/react";
-import {useRoute} from "ziggy-js";
+} from '@/components/ui/sidebar';
+import React from 'react';
+import { usePage } from '@inertiajs/react';
+import { useRoute } from 'ziggy-js';
 
 interface SharedProps extends Record<string, unknown> {
     appName: string;
 }
 
-export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const { props: _props } = usePage<SharedProps>();
     const route = useRoute();
 
     const data = {
         navMain: [
             {
-                title: "Dashboard",
-                url: route("dashboard.index"),
+                title: 'Dashboard',
+                url: route('dashboard.index'),
                 icon: SquareTerminal,
-                isActive: true
-            }
-        ]
-    }
+                isActive: true,
+            },
+        ],
+    };
 
     return (
         <Sidebar collapsible="icon" {...props}>
@@ -50,22 +51,23 @@ export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
                     size="lg"
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
-                    <div
-                        className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                        <GalleryVerticalEnd className="size-4"/>
+                    <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                        <GalleryVerticalEnd className="size-4" />
                     </div>
                     <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-medium">{_props.appName}</span>
+                        <span className="truncate font-medium">
+                            {_props.appName}
+                        </span>
                     </div>
                 </SidebarMenuButton>
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain}/>
+                <NavMain items={data.navMain} />
             </SidebarContent>
             <SidebarFooter>
-                <NavUser/>
+                <NavUser />
             </SidebarFooter>
-            <SidebarRail/>
+            <SidebarRail />
         </Sidebar>
-    )
+    );
 }

@@ -1,15 +1,17 @@
-import { VerificationForm } from "@/components/forms/verification-form"
-import React from "react";
-import AuthLayout from "@/layout/auth";
+import { VerificationForm } from '@/components/forms/verification-form';
+import React from 'react';
+import AuthLayout from '@/layout/auth';
 
 interface VerificationPageProps {
-  email?: string
+    email?: string;
 }
 
 const VerificationPage = ({ email }: VerificationPageProps) => {
-  return <VerificationForm email={email} />
+    return <VerificationForm email={email} />;
 };
 
-VerificationPage.layout = (page: React.ReactNode) => <AuthLayout>{page}</AuthLayout>
+VerificationPage.layout = (page: React.ReactNode) => (
+    <AuthLayout>{page}</AuthLayout>
+);
 
 export default VerificationPage;
